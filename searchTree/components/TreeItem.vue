@@ -47,12 +47,12 @@ export default {
                         color: "green",
                         margin: "0 0 12px 0",
                         height: "100%",
-                        transition: "500",
-                        "z-index": '2'
                     };
                     break;
                 case "class":
-                    style = { color: "lightred", ZIndex: '3' };
+                    style = {
+                        color: "lightred"
+                    };
                     break;
                 case "student":
                     style = {
@@ -62,7 +62,10 @@ export default {
                     };
                     break;
                 case "dataPoint":
-                    style = { display: "flex", fontSize: "12px" };
+                    style = {
+                        display: "flex",
+                        fontSize: "12px"
+                    };
                     break;
 
                 default:

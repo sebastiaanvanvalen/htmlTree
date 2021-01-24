@@ -50,9 +50,6 @@ export default {
         font-size: 18px;
         font-weight: 600;
 
-        .img-replace {
-            transition: 200ms;
-        }
 
         .img-replaced {
             color: red;

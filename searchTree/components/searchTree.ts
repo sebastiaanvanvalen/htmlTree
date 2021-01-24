@@ -21,14 +21,14 @@ const state = {
         {id: 2, type: "dataPoint", name: 'rapport 2', selected: false}
     ],
     "student": [
-        {id: 1, type:"student", name: 'Remy Bovenkamp', selected: false}, 
-        {id: 2, type:"student", name: 'Sigrid de Clerq', selected: false}, 
-        {id: 3, type:"student", name: 'Willem Horjus', selected: false}, 
-        {id: 4, type:"student", name: 'Gerrit Flapper', selected: false}, 
-        {id: 5, type:"student", name: 'Margriet Wiechers', selected: false}, 
-        {id: 6, type:"student", name: 'Vincent Homburg', selected: false}, 
-        {id: 7, type:"student", name: 'Rob van Daatselaar', selected: false}, 
-        {id: 8, type:"student", name: 'Nolda Hoekstra', selected: false}
+        {id: 1, type:"student", name: 'Remy', selected: false}, 
+        {id: 2, type:"student", name: 'Sigrid de', selected: false}, 
+        {id: 3, type:"student", name: 'Willem', selected: false}, 
+        {id: 4, type:"student", name: 'Gerrit', selected: false}, 
+        {id: 5, type:"student", name: 'Margriet', selected: false}, 
+        {id: 6, type:"student", name: 'Vincent', selected: false}, 
+        {id: 7, type:"student", name: 'Rob van', selected: false}, 
+        {id: 8, type:"student", name: 'Nolda', selected: false}
     ],
     
     // actual state variables
@@ -39,11 +39,6 @@ const state = {
 };
 
 const getters = {
-    // getters for JSON, for now stored in state. Need to be API-calls in actions/mutations
-    getschoolTerm: (state: any) => state.years,
-    getclass: (state: any) => state.groups,
-    getdataPoint: (state: any) => state.report,
-    getstudent: (state: any) => state.students,
     getItems: (state: any) => (item: any) => {
         const thisItem = item.type.toString();
         let type = "";
@@ -85,53 +80,18 @@ const getters = {
 };
 
 const actions = {
-    setYear({ commit }: any, e: any): any {
-        const yearId = e.target.options[e.target.options.selectedIndex].innerHTML;
-        commit('setYear', yearId)
-    },
-    setGroup({ commit }: any, e: any): any {
-        let groupId;
-        if (e !== null) {
-            groupId = e.target.options[e.target.options.selectedIndex].innerHTML;
-        } else {
-            groupId = null;
-        }
-            commit('setGroup', groupId)
-    },
-    setReport({ commit }: any, e: any): any {
-        let reportId;
-        if (e !== null) {
-            reportId = e.target.options[e.target.options.selectedIndex].innerHTML;
-        } else {
-            reportId = null
-        }
-        commit('setReport', reportId)
-    },
-    setStudent({ commit }: any, e: any): any {
-        let studentId;
-        if (e !== null) {
-            studentId = e.target.options[e.target.options.selectedIndex].innerHTML;
-        } else {
-            studentId = null;
-        }
-        commit('setStudent', studentId)
-    },
+
 };
 
 const mutations = {
     setYear: (state: any, yearId: number): any => {
-        // state.groups.map(x => x.selected = false);
-        // state.years[state.years.findIndex((obj =>obj.selected === true))].selected = false;
         state.selYear = yearId;
-        console.log("selected year: " + state.selYear)
     },
     setGroup: (state: any, groupId: number) => {
         state.selGroup = groupId;
-        console.log("selected group: " + state.selGroup)
     },
     setReport: (state: any, reportId: number) => {
         state.selReport = reportId;
-        console.log("selected report: " + state.selReport)
     },
     setStudent: (state: any, studentId: number) => {
         state.selStudent = studentId;
